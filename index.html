@@ -5,41 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>zhi zuo tang</title>
+    <title>Ziteng Zhang</title>
 
     <style>
+        :root {
+            --text: #222;
+            --muted: #777;
+            --light: #e5e5e5;
+            --accent: #315b52;
+        }
+        
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            max-width: 800px;
+            font-family: "Times New Roman", Times, serif;
+            max-width: 780px;
             margin: 0 auto;
-            padding: 60px 30px;
-            line-height: 1.7;
-            color: #222;
+            padding: 65px 30px 50px;
+            line-height: 1.65;
+            color: var(--text);
+            background: #fff;
+        }
+        
+        /* 中文统一使用宋体 */
+        :lang(zh),
+        [lang="zh"],
+        .zh {
+            font-family: "SimSun", "Songti SC", "STSong", serif;
         }
 
-        h1 {
-            font-size: 42px;
-            margin-bottom: 5px;
-        }
-
-        h2 {
-            margin-top: 50px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #666;
-            font-size: 18px;
+        header {
+            margin-bottom: 55px;
         }
 
         .logo {
-            width: 120px;
+            width: 105px;
             height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: "Times New Roman", Times, serif;
+            line-height: 1.25;
+        }
+
+        h1 {
+            font-size: 43px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin: 0 0 5px 0;
+        }
+
+        h2 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-top: 55px;
+            margin-bottom: 22px;
+            padding-bottom: 9px;
+            border-bottom: 1px solid var(--light);
+        }
+
+        h3 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 4px;
+        }
+
+        p {
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-size: 17px;
+            margin-top: 4px;
+        }
+
+        .intro {
+            font-size: 18px;
+            margin-top: 28px;
+            max-width: 700px;
+        }
+
+        .research-item,
+        .publication-item {
+            margin-bottom: 30px;
+        }
+
+        .meta {
+            font-size: 14px;
+            color: var(--muted);
+            margin-top: 2px;
+            margin-bottom: 10px;
         }
 
         a {
-            color: #0366d6;
+            color: var(--accent);
             text-decoration: none;
         }
 
@@ -47,66 +110,247 @@
             text-decoration: underline;
         }
 
+        nav {
+            margin-top: 20px;
+            font-size: 15px;
+        }
+
+        nav a {
+            margin-right: 18px;
+        }
+
         footer {
-            margin-top: 70px;
+            margin-top: 75px;
             padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #777;
-            font-size: 14px;
+            border-top: 1px solid var(--light);
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 40px 22px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .intro {
+                font-size: 17px;
+            }
+
+            nav a {
+                margin-right: 12px;
+            }
         }
     </style>
 </head>
 
+
 <body>
-    
-    <img src="TheSoupIcon_W_icons.svg" alt="Website Logo" class="logo">
+
+<header>
+
+    <img src="TheSoupIcon_W_icons.svg"
+         alt="Website Logo"
+         class="logo">
 
     <h1>Ziteng Zhang</h1>
 
     <p class="subtitle">
-        Not yet employed graduate student | Central Univ. of Finance & Eco. -> Stanford.
+        Media Studies & Communication at ? <-
+        East Asian Studies at Stanford. <-
+        Sociology at Central Univ. of Fin. & Eco. <-
+        ...
+    </p>
+    
+    <nav>
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Writing</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <p class="intro">
+        
+        I study (PROBLEM)
+        
+    </p>
+    
+</header>
+
+    
+<section id="about">
+
+    <h2>About</h2>
+
+    <p>
+        M.A. in East Asian Studies, Stanford University, Stanford, CA (Sep 2024 – Jun 2026)
+            Here are courses that I took & like:
+        Research Seminar in Chinese History (HISTORY 496A & 496B)
+        Major Topics in Modern Chinese History: Cultural, Intellectual, and Material History (HISTORY 398)
+        Core Seminar: Debates & Methods in East Asian Studies (EASTASN 330)
+        Graduate Studies in Japanese (JAPANLNG 395)
     </p>
 
     <p>
-        Welcome to my personal website.
-        I am interested in the material history of knowledge production.
+        LL.B. in Sociology, Central University of Finance and Economics, Beijing (Sep 2019 – Jun 2023)
+            Here are courses that I took & like:
+        中国乡村研究、中国社会结构与变迁研究、社区概论（1210062）、社会问题研究 (1210182)、质性研究方法（1210417）
     </p>
-
-
-    <h2>About Me</h2>
 
     <p>
-        I will write a short introduction about myself here soon.
-        No need to introduce my education, research interests,
-        professional experience, or anything else I would like visitors to know.
+        Non-Degree, Summer Session at University of California, Berkeley, CA (May 2022 – Aug 2022)
+            The only course that I took:
+        Critical Digital Humanities
     </p>
 
+</section>
+
+<section id="research">
 
     <h2>Research</h2>
 
+    <div class="research-item">
+
+        <h3>
+            Entering the Field: American Social Surveys of China in the Republican Era, 1909–1928
+        </h3>
+
+        <p class="meta">
+            M.A. Thesis, Stanford University
+            REGION: China | Advisor: Thomas Mullaney, History
+            https://doi.org/10.25740/jw159fx4601
+        </p>
+
+        <p>
+            This research examines how American social surveys of China in the Republican era (1909–1928) were conducted, rather than what they found. 
+            Drawing on archival research in the papers of Sidney D. Gamble and John S. Burgess, it unpacks how modern knowledge about Chinese society was produced in practice by integrating materials, institutions, personnel, and local resources. 
+            The analysis unfolds across three dimensions. 
+            First, at the level of material infrastructure, this research traces how survey equipment functioned, sometimes generated friction, and required adjustment at the intersection of Western knowledge-producing technology and Chinese local conditions. 
+            Second, at the level of institutions and organizations, it examines how American transnational missionary networks and educational institutions provided the organizational backbone for survey work, and how Chinese collaborators mediated between American investigative methods and indigenous society. 
+            The last section of this research places American surveys within a turbulent socio‑political landscape of civil war, nationalism, and competing imperialisms in modern China. It shows how these structural forces repeatedly redirected American research agendas and ultimately eroded the institutional foundations on which survey production depended. 
+            This research concludes that American social surveys of China were never a ready-made toolkit transplanted onto a passive field, but rather contingent and negotiated practices shaped by the enduring tension among objects, organizations, and social realities.
+        </p>
+
+    </div>
+
+
+    <div class="research-item">
+
+        <h3>
+            Guarding the Revolutionary Mind
+        </h3>
+
+        <p class="meta">
+            Radio, surveillance, and clandestine listening in Maoist China......待更新补充
+        </p>
+
+        <p>
+            This project investigates the politics of listening to foreign
+            shortwave broadcasts in China during the 1950s–1970s......待更新补充
+        </p>
+
+        <p>
+            It explores a technological paradox......待更新补充
+        </p>
+
+    </div>
+
+
+    <div class="research-item">
+
+        <h3>
+            Technologies of Relation......待更新补充
+        </h3>
+
+        <p class="meta">
+            Ongoing research
+        </p>
+
+        <p>
+            My current theoretical interests concern technologies that generate
+            knowledge not primarily by introducing new hardware, but by arranging
+            relations among existing pieces of information......待更新补充
+        </p>
+
+        <p>
+            One case I am currently exploring is Niklas Luhmann's
+            <em>Zettelkasten</em>: a paper-based system whose numbering,
+            linking, and indexing practices transformed note-taking into a
+            mechanism for generating unexpected intellectual connections......待更新补充
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="publications">
+
+    <h2>Writing & Publications</h2>
+
+    <div class="publication-item">
+
+        <p>
+            ......待更新补充 
+        </p>
+
+    </div>
+
+    <div class="publication-item">
+
+        <p>
+            “Credible Commitment ......待更新补充
+        </p>
+
+    </div>
+
+    <div class="publication-item">
+
+        <p>
+            “Institutional Credible Commitment and ......待更新补充
+        </p>
+
+    </div>
+
+</section>
+
+
+<section>
+
+    <h2>Archives & Methods</h2>
+
     <p>
-        My current research focuses on media technologies,
-        knowledge production, and the history of information practices.
+        My research ......待更新补充
     </p>
 
-
-    <h2>Publications</h2>
-
     <p>
-        I have zero publication.
+        I have conducted research at the Hoover Institution Library & Archives
+        and ......待更新补充
     </p>
 
+</section>
+
+
+<section id="contact">
 
     <h2>Contact</h2>
 
     <p>
-        Email: zitengzhang2001@outlook.com
+        Email:
+        <a href="mailto:zitengzhang2001@outlook.com">
+            zitengzhang2001@outlook.com
+        </a>
     </p>
 
+</section>
 
-    <footer>
-        © 2026 Ziteng Zhang
-    </footer>
+
+<footer>
+    © 2026 Ziteng Zhang
+</footer>
 
 </body>
 
