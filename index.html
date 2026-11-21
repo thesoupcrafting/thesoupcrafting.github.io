@@ -13,7 +13,7 @@
         }
         body {
             font-family: "Times New Roman", Times, serif;
-            max-width: 780px;
+            max-width: 920px;
             margin: 0 auto;
             padding: 65px 30px 50px;
             line-height: 1.65;
@@ -144,6 +144,17 @@
         #tab-profile nav {
             margin-top: 0;
         }
+        /* Research 下的四个板块：小一号的子标题 */
+        .subhead {
+            font-size: 19px;
+            margin-top: 40px;
+            margin-bottom: 18px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid var(--light);
+        }
+        #research + section .subhead {
+            margin-top: 28px;
+        }
         /* 研究陈述：除首段外，各段首行缩进（期刊格式） */
         #statement-text p + p {
             text-indent: 2em;
@@ -192,17 +203,14 @@
 
 <div id="tab-profile" role="tabpanel" aria-labelledby="tabbtn-profile">
     <nav>
-        <a href="#about">About</a>
-        <a href="#R0">American International Communication</a>
-        <a href="#R1">American Social Surveys of China</a>
-        <a href="#R2">American Radio Broadcasts to China</a>
-        <a href="#R3">Decentralized Autonomous Organization</a>
-        <a href="#archives">Collection</a>
+        <a href="#about">Academic Background</a>
+        <a href="#research">Research Projects</a>
+        <a href="#archives">Personal Collection</a>
         <a href="#contact">Contact</a>
     </nav>
 
 <section id="about">
-    <h2>About</h2>
+    <h2>Academic Background</h2>
     <div class="education-item">
         <p>
             <strong>M.A. in East Asian Studies</strong>,
@@ -211,9 +219,9 @@
         </p>
         <p>Selected Coursework:</p>
         <ul>
-            <li>Research Seminar in Chinese History (HISTORY 496A &amp; 496B)</li>
-            <li>Major Topics in Modern Chinese History: Cultural, Intellectual, and Material History (HISTORY 398)</li>
-            <li>(Language Learning) Graduate Studies in Japanese (JAPANLNG 395)</li>
+            <li>Research Seminar in Chinese History</li>
+            <li>Major Topics in Modern Chinese History: Cultural, Intellectual, and Material History</li>
+            <li>(Language Learning) Graduate Studies in Japanese</li>
         </ul>
     </div>
     <div class="education-item">
@@ -242,8 +250,12 @@
     </div>
 </section>
 
+<section id="research">
+    <h2>Research Projects</h2>
+</section>
+
 <section id="R0">
-    <h2>American International Communication / <span lang="zh">美国国际传播装置</span></h2>
+    <h3 class="subhead">American International Communication / <span lang="zh">美国国际传播装置</span></h3>
     <div class="R0-item">
         <h3>
             <span lang="zh">国际传播装置的历史生成：1927至1953年美国对外传播机构与知识生产的国家整合</span><br>
@@ -256,7 +268,7 @@
 </section>
 
 <section id="R1">
-    <h2>American Social Surveys of China / <span lang="zh">美国对华社会调查</span></h2>
+    <h3 class="subhead">American Social Surveys of China / <span lang="zh">美国对华社会调查</span></h3>
     <div class="R1-item">
         <h3>
             <span lang="zh">实地调查：1909至1928年的美国对华社会调查</span><br>
@@ -285,7 +297,7 @@
 </section>
 
 <section id="R2">
-    <h2>American Radio Broadcasts to China / <span lang="zh">美国对华冷战广播</span></h2>
+    <h3 class="subhead">American Radio Broadcasts to China / <span lang="zh">美国对华冷战广播</span></h3>
     <div class="R2-item">
         <h3>
             <span lang="zh">保卫思想：1949至1976年共产主义中国的反“敌台”斗争</span><br>
@@ -309,7 +321,7 @@
 </section>
 
 <section id="R3">
-    <h2>Decentralized Autonomous Organization / <span lang="zh">去中心化自治组织</span></h2>
+    <h3 class="subhead">Decentralized Autonomous Organization / <span lang="zh">去中心化自治组织</span></h3>
     <div class="R3-item">
         <h3>
             <span lang="zh">当代网络组织研究：“技术规制-社区网络”的治理模式</span><br>
@@ -334,7 +346,7 @@
 </section>
 
 <section id="archives">
-    <h2>Collection</h2>
+    <h2>Personal Collection</h2>
 
     <div class="research-item">
         <h3>Project Archives</h3>
