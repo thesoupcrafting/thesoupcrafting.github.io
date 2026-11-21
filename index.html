@@ -20,14 +20,14 @@
             color: var(--text);
             background: #fff;
         }
-        /* 中文统一使用宋体 */
+        /* 中文统一使用楷体 */
         :lang(zh),
         [lang="zh"],
         .zh {
-            font-family: "SimSun", "Songti SC", "STSong", serif;
+            font-family: "KaiTi", "KaiTi_GB2312", "Kaiti SC", "STKaiti", "楷体", serif;
         }
         header {
-            margin-bottom: 55px;
+            margin-bottom: 30px;
         }
         .logo {
             width: 105px;
@@ -59,6 +59,12 @@
             font-weight: 600;
             margin-top: 0;
             margin-bottom: 4px;
+        }
+        /* 条目标题中，中文题目与下方英文题目之间留出行距 */
+        h3 > span[lang="zh"] {
+            display: inline-block;
+            line-height: 1.5;
+            margin-bottom: 6px;
         }
         p {
             margin-top: 8px;
@@ -105,6 +111,43 @@
             color: var(--muted);
             font-size: 13px;
         }
+        .tabs {
+            display: flex;
+            gap: 30px;
+            margin-top: 32px;
+            border-bottom: 1px solid var(--light);
+        }
+        .tab {
+            font-family: inherit;
+            font-size: 18px;
+            line-height: 1.3;
+            color: var(--muted);
+            background: none;
+            border: 0;
+            border-bottom: 2px solid transparent;
+            margin: 0 0 -1px;
+            padding: 0 0 10px;
+            cursor: pointer;
+        }
+        .tab:hover {
+            color: var(--text);
+        }
+        .tab[aria-selected="true"] {
+            color: var(--text);
+            font-weight: 600;
+            border-bottom-color: var(--accent);
+        }
+        .tab:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+        #tab-profile nav {
+            margin-top: 0;
+        }
+        /* 研究陈述：除首段外，各段首行缩进（期刊格式） */
+        #statement-text p + p {
+            text-indent: 2em;
+        }
         @media (max-width: 600px) {
             body {
                 padding: 40px 22px;
@@ -118,6 +161,12 @@
             nav a {
                 margin-right: 12px;
             }
+            .tabs {
+                gap: 22px;
+            }
+            .tab {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -128,55 +177,63 @@
          class="logo">
     <h1>Ziteng Zhang</h1>
     <p class="subtitle">
-        Media Studies & Communication at ? <- <br>
-        East Asian Studies at Stanford. <- <br>
-        Sociology at Central Univ. of Fin. & Eco. <- <br>
+        Communication at ? (somewhere in China) &lt;- <br>
+        East Asian Studies at Stanford University. &lt;- <br>
+        Sociology at Central Univ. of Fin. &amp; Eco. &lt;- <br>
         ...
     </p>
+    <div class="tabs" role="tablist">
+        <button type="button" class="tab" id="tabbtn-profile" role="tab"
+                aria-controls="tab-profile" aria-selected="true">Profile and Information</button>
+        <button type="button" class="tab" id="tabbtn-statement" role="tab"
+                aria-controls="tab-statement" aria-selected="false" tabindex="-1">Research Statement</button>
+    </div>
+</header>
+
+<div id="tab-profile" role="tabpanel" aria-labelledby="tabbtn-profile">
     <nav>
         <a href="#about">About</a>
-        <a href="#R1">Republican China & the U.S.</a>
-        <a href="#R2">Communist China & the U.S.</a>
-        <a href="#R3">Organization & Community Studies</a>
-        <a href="#archives">Archives</a>
+        <a href="#R0">American International Communication</a>
+        <a href="#R1">American Social Surveys of China</a>
+        <a href="#R2">American Radio Broadcasts to China</a>
+        <a href="#R3">Decentralized Autonomous Organization</a>
+        <a href="#archives">Collection</a>
         <a href="#contact">Contact</a>
     </nav>
-    <p class="intro">
-        I study (PROBLEM)    
-    </p>
-</header>        
+
 <section id="about">
     <h2>About</h2>
     <div class="education-item">
         <p>
             <strong>M.A. in East Asian Studies</strong>,
-            Stanford University, Stanford, CA,
+            <strong>Stanford University</strong>, Stanford, CA,
             Sep 2024 – Jun 2026
         </p>
+        <p>Selected Coursework:</p>
         <ul>
             <li>Research Seminar in Chinese History (HISTORY 496A &amp; 496B)</li>
             <li>Major Topics in Modern Chinese History: Cultural, Intellectual, and Material History (HISTORY 398)</li>
-            <li>Core Seminar: Debates &amp; Methods in East Asian Studies (EASTASN 330)</li>
             <li>(Language Learning) Graduate Studies in Japanese (JAPANLNG 395)</li>
         </ul>
     </div>
     <div class="education-item">
         <p>
             <strong>LL.B. in Sociology</strong>,
-            Central University of Finance and Economics, Beijing,
+            <strong>Central University of Finance and Economics</strong>, Beijing,
             Sep 2019 – Jun 2023
         </p>
-        <ul lang="zh">
-            <li>中國鄉村研究 / Rural China Studies</li>
-            <li>中國社會結構與變遷研究 / Social Structure and Transformation in China</li>
-            <li>社區概論(1210062) / Community Studies</li>
-            <li>社會問題研究(1210182) / Social Problems</li>
+        <p>Selected Coursework:</p>
+        <ul>
+            <li>Rural China Studies / <span lang="zh">中国乡村研究</span></li>
+            <li>Social Structure and Transformation in China / <span lang="zh">中国社会结构与变迁研究</span></li>
+            <li>Community Studies / <span lang="zh">社区概论</span></li>
+            <li>Social Problem Studies / <span lang="zh">社会问题研究</span></li>
         </ul>
     </div>
     <div class="education-item">
         <p>
             <strong>Non-Degree, Summer Session</strong>,
-            University of California, Berkeley, CA,
+            <strong>University of California, Berkeley</strong>, CA,
             May 2022 – Aug 2022
         </p>
         <ul>
@@ -185,10 +242,24 @@
     </div>
 </section>
 
+<section id="R0">
+    <h2>American International Communication / <span lang="zh">美国国际传播装置</span></h2>
+    <div class="R0-item">
+        <h3>
+            <span lang="zh">国际传播装置的历史生成：1927至1953年美国对外传播机构与知识生产的国家整合</span><br>
+            The Historical Formation of the International Communication Apparatus: The American State’s Integration of Overseas Communication Institutions and Knowledge Production, 1927–1953
+        </h3>
+        <p class="meta">
+            Proposed Research / <span lang="zh">在研</span>
+        </p>
+    </div>
+</section>
+
 <section id="R1">
-    <h2>美國對華社會調查 / American Social Surveys of China</h2>
+    <h2>American Social Surveys of China / <span lang="zh">美国对华社会调查</span></h2>
     <div class="R1-item">
         <h3>
+            <span lang="zh">实地调查：1909至1928年的美国对华社会调查</span><br>
             Entering the Field: American Social Surveys of China in the Republican Era, 1909–1928
         </h3>
         <p class="meta">
@@ -210,61 +281,155 @@
                 https://sgs.stanford.edu/research/student-research/global-research-trips/2026-global-research-trips
             </a>
         </p>
-    </div>        
+    </div>
 </section>
 
 <section id="R2">
-    <h2>共產主義中國的反敵台鬥爭 / American Radio Broadcasts in China</h2>
+    <h2>American Radio Broadcasts to China / <span lang="zh">美国对华冷战广播</span></h2>
     <div class="R2-item">
         <h3>
+            <span lang="zh">保卫思想：1949至1976年共产主义中国的反“敌台”斗争</span><br>
             Guarding the Revolutionary Mind: Materiality and Governmentality of the Enemy Radio Broadcasts in Communist China
         </h3>
         <p class="meta">
             Seminar Paper<br>
-            Advisor: Professor Thomas Mullaney, History<br>
+            Advisor: Professor Thomas Mullaney, History
         </p>
     </div>
-    
+
     <div class="R2-item">
         <h3>
             Guarding the Communist Mind: Mass Organizations and State Apparatus in Combating Clandestine Radio Listening in Maoist China
         </h3>
         <p class="meta">
             Silas Palmer Fellowship (Jul 2025 – Jul 2026)<br>
-            Hoover Institution Library & Archives (HILA)<br>
+            Hoover Institution Library &amp; Archives (HILA)
         </p>
     </div>
 </section>
 
 <section id="R3">
-    <h2>去中心化自治組織 / Decentralized Autonomous Organization</h2>
+    <h2>Decentralized Autonomous Organization / <span lang="zh">去中心化自治组织</span></h2>
     <div class="R3-item">
         <h3>
-            代碼規制與社區網絡的動態協同————去中心化自治組織（DAO）治理的制度邏輯 / The Dynamic Coordination of Code-Based Regulation and Community Networks: Institutional Logics of Governance in Decentralized Autonomous Organizations
+            <span lang="zh">当代网络组织研究：“技术规制-社区网络”的治理模式</span><br>
+            The Dynamic Coordination of Code-Based Regulation and Community Networks: Institutional Logics of Governance in Decentralized Autonomous Organizations
         </h3>
         <p class="meta">
-            Co-authored<br>
+            Co-authored
         </p>
     </div>
-    
+
     <div class="R3-item">
         <h3>
-            制度可信承諾與組織治理模式選擇研究————以去中心化自治組織Gitcoin DAO為例 / Institutional Credible Commitment and the Selection of Governance Models in Organizations: A Case Study on Gitcoin DAO
+            Institutional Credible Commitment and the Selection of Governance Models in Organizations: A Case Study on Gitcoin DAO
         </h3>
         <p class="meta">
-            Undergraduate Thesis, Central Univ. of Fin. & Eco.<br>
+            Undergraduate Thesis, Central Univ. of Fin. &amp; Eco.<br>
             Presented at the 12th Economy and Society Research Annual Conference. Beijing, May 2023<br>
             Presented at the 20th Empirical Research in Sociology of Organization Workshop. Shanghai, Aug 2023<br>
-            Advisor: Professor Yun Ai, Sociology<br>
+            Advisor: Professor Yun Ai, Sociology
         </p>
     </div>
 </section>
 
 <section id="archives">
-    <h2>Archives</h2>
-    <p>
-        List
-    </p>
+    <h2>Collection</h2>
+
+    <div class="research-item">
+        <h3>Project Archives</h3>
+        <ul>
+            <li>
+                Seminar Paper Archives: “Enemy Radio,” 1949–1976 /
+                <span lang="zh">「敌台」研讨课论文档案，1949–1976</span>
+            </li>
+            <li>
+                Thesis Archives: “Entering the Field,” 1909–1928 /
+                <span lang="zh">「实地调查」硕士论文档案，1909–1928</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="research-item">
+        <h3>Communism</h3>
+        <ul>
+            <li>
+                Comintern, the CPSU(B), and the Chinese Revolution: Archival Materials /
+                <span lang="zh">共产国际、联共(布)与中国革命档案资料</span>
+            </li>
+            <li>
+                Documents on Communism, Labor, and Student Movements /
+                <span lang="zh">共产主义、劳工、学生运动专题文献资料</span><br>
+                <span class="meta">Hoover Institution Library &amp; Archives (HILA)</span>
+            </li>
+            <li>
+                Miscellaneous Archives on Communist China /
+                <span lang="zh">共产主义中国零散档案</span><br>
+                <span class="meta">Hoover Institution Library &amp; Archives (HILA)</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="research-item">
+        <h3>Far East</h3>
+        <ul>
+            <li>
+                Catalog of the Tōa Dōbun Shoin China Survey Manuscripts (PDF) /
+                <span lang="zh">东亚同文书院中国调查手稿丛刊（目录）</span>
+            </li>
+            <li>
+                Japanese-Sponsored Chinese Regimes, 1937–1945 /
+                <span lang="zh">日本扶植的中国政权（1937—1945年）</span><br>
+                <span class="meta">Hoover Institution Library &amp; Archives (HILA)</span>
+            </li>
+            <li>
+                Intelligence Contamination in Sino-U.S. Relations during WWII /
+                <span lang="zh">情报污染专题（中美，二战时期）</span><br>
+                <span class="meta">Hoover Institution Library &amp; Archives (HILA)</span>
+            </li>
+            <li>
+                U.S. Far Eastern Policy on the Question of Manchurian Independence /
+                <span lang="zh">美国对满洲独立问题的远东政策专题档案</span><br>
+                <span class="meta">Hoover Institution Library &amp; Archives (HILA)</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="research-item">
+        <h3>Modern China</h3>
+        <ul>
+            <li>
+                Collected Reports on Social Surveys of China’s Frontiers, Series 1 /
+                <span lang="zh">中国边疆社会调查报告集成　第一辑</span>
+            </li>
+            <li>
+                Compilation of Republican-Era Archives on the Southwest Frontier (Yunnan) /
+                <span lang="zh">民国时期西南边疆档案资料汇编（云南）</span>
+            </li>
+            <li>
+                Historical Sources and Database on Shanxi Piaohao, Late Qing to Republican Era /
+                <span lang="zh">晚清至民国山西票号史料与数据库</span>
+            </li>
+            <li>
+                Local History and Family Archives of Modern Nantong /
+                <span lang="zh">近代南通地方史与家族档案专题档案</span>
+            </li>
+            <li>
+                China through Western Eyes: Manuscript Archives, 1792–1942 /
+                <span lang="zh">西方人眼中的中国：1792—1942年手稿档案</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="research-item">
+        <h3>Secondary Literature</h3>
+        <ul>
+            <li>
+                Social Structure and Transformation in China and Rural China Studies /
+                <span lang="zh">中国社会结构变迁与中国乡村研究</span>
+            </li>
+        </ul>
+    </div>
 </section>
 
 <section id="contact">
@@ -276,10 +441,74 @@
         </a>
     </p>
 </section>
+</div>
+
+<div id="tab-statement" role="tabpanel" aria-labelledby="tabbtn-statement" hidden>
+<section id="statement-text">
+    <h2>Research Statement</h2>
+    <p>
+        My undergraduate research focused on emerging forms of contemporary networked organization. Taking decentralized autonomous organizations (DAOs) as a case, I analyzed the interaction between technical rules and organizational governance models. My underlying question was whether effective collective action can be reorganized outside established typological frameworks, taking on different operating mechanisms that avoid the drawbacks of formal organizations in modern society and allow freer, more flexible cooperation among people. The research drew on network ethnography, a qualitative method in sociology. Based on the results of this series of studies and subsequent follow-up observation, I revised the technological-determinist assumption with which I began. The material and technical features of a technology alone cannot fundamentally determine organizational capacity; the degree to which a social group is organized is always embedded in the interaction of broader sociological factors. Like many other networked organizations, DAOs have the character of a bubble. This is the projection of the postmodern specter onto the field of organization. /
+        <span lang="zh">我本科的研究着眼于当代新兴网络组织形态，以去中心化自治组织为案例，解析技术规则与组织的治理模式之间的互动关系。我对这一关系的追问旨在探讨有效的集体行动是否可能在既定的类型框架外被重新组织起来，呈现出不一样的运行机制，以此来规避现代社会正式组织的弊端，实现人与人之间更自由灵活的协作。这一研究的取径是社会学质性方法中的网络民族志。根据这一系列研究的结果以及后续的跟进观察，我修正了研究伊始的技术决定论预设。单一的物质技术特性并不能根本上决定组织能力，社会团体的组织程度始终内嵌于更广大的社会学要素互动中。去中心化自治组织，正如其他很多网络组织一样，是具有泡沫性质的。这是后现代的魅影在组织领域的投射。</span>
+    </p>
+    <p>
+        My master’s research turned from sociological to historical methods. The governance struggle in Communist China over enemy radio broadcasts was my first attempt at archival research. I examine how grassroots security organs and mass organizations within the system responded to “enemy radio” in order to protect revolutionary ideology from disturbance by external information. The topic involves information and communication technologies such as shortwave radio, but in its questions and perspective it is closer to organizational research. What the enemy broadcasts said was fundamentally unimportant; what mattered was that they were unlicensed and therefore had to be placed under the control of the state apparatus. This seemingly monotonous cat-and-mouse game was complicated by three factors: first, the paradox formed by the materiality of shortwave radio, the socialist modernization project, and the needs of official ideological propaganda; second, the crudeness of Leninist organizational techniques in Communist China, where the organizational system itself was neither pure nor tight enough; and third, people’s instinctive need to obtain information. /
+        <span lang="zh">我硕士的研究从社会学转向历史学的方法。共产主义中国围绕敌台广播展开的治理斗争，是我的第一次档案研究尝试。我关注体制中的基层保卫机构与群众组织如何对“敌台”作出反应，从而保卫革命意识形态不受外部信息的扰动。这一议题涉及短波无线电广播等信息传播技术，但是从问题与视角上来说它更接近一个组织研究。敌台广播的内容是什么根本不重要，重要的是它是未经许可的、也因此需要置于政权机器控制之下的。而这种看似单调的猫鼠游戏则因三个因素变得复杂：一是由短波无线电的物质性、社会主义现代化工程、官方意识形态宣传的需要三者构成的悖论性；二是列宁主义组织技术在共产主义中国的粗疏，组织制度本身并不足够纯粹而严密；三是人对信息获取的本能需要。</span>
+    </p>
+    <p>
+        In my master’s thesis, transnationality became a more prominent core concept. Given my own background as a researcher, this concept has always been situated between China and the United States in my work. The thesis focuses on the social survey work carried out in Beijing by two Americans who were both YMCA secretaries and social science researchers, during the late Qing and Beiyang period (which I loosely and imprecisely call the Republican era). In this case, I try to address the interaction among three issues: imperialism and social change in modern China in a transnational context; the field survey methods of social scientific positivism and knowledge production; and the paradigm of social order through which the United States expanded as an “informal empire.” Social scientific knowledge production, evidently, is understood as a mediating mechanism between the social reality of a transforming China and the American empire contending for power in the Far East. /
+        <span lang="zh">在我的硕士毕业论文中，跨国性作为一个核心概念被进一步凸显。基于研究者自身背景，这一概念在我的研究中始终被置于中国与美国之间的。我的硕士论文着眼于晚清、北洋这一历史时期（我笼统地、不精确地称之为民国时期）两位基督教青年会干事、同时也是社会科学研究者的美国人在北京展开的社会调查工作。在这个案例中，我试图处理以下三个问题的相互作用机制：跨国语境下近代中国的帝国主义和社会变迁，社会科学实证主义的实地调查方法与知识生产，以及美国以其“非正式帝国”扩张的社会秩序范式。显然，社科知识生产被理解为转型中的中国社会现实，同远东势力角逐中的美式帝国间的中介机制。</span>
+    </p>
+    <p>
+        What drives me to study this case is a set of questions that puzzle me: How does the scholarship of social scientific intellectuals translate into practices that affect real society? What does the inflow of transnational resources and orders mean for the path of China’s social transformation? In a general sense, this research emphasizes the encounter between the materiality of media technology and local contexts, and the dependence of field surveys on institutional resources and local relational networks; in a more specific sense, it reveals the shifting fortunes of imperialist powers in China during the Republican era. If the late Qing and Beiyang periods could still sustain a balance of imperialist power in the Far East, then 1928 marked the withdrawal of the British and American imperialist social and political agenda and announced that revolution imported from Soviet Russia would eventually replace the Western path of social progress and reform. The origins, course, and outcome of American social surveys of China are all facets of this historical picture. /
+        <span lang="zh">推动我研究这一案例的根本动力在于我对以下问题的困惑：社科知识分子的学术如何转化为影响现实社会的实践？跨国资源与秩序的输入对中国社会转型的路径选择意味着什么？这一研究在普适意义上强调了媒介技术的物质性同地方语境的遭遇、实地调查对机构资源和在地关系网络的依赖，在特殊意义上揭示了民国时期帝国主义在华势力消长的变迁：如果说晚清北洋尚能维持帝国主义在远东的均势，那么1928年则意味着英美帝国主义社会政治议程的退场，宣告苏俄输入的革命终将取代西方的社会进步改良路线。美国对华开展的社会调查的起因、经过、结果均为这一历史图景的侧面。</span>
+    </p>
+    <p>
+        My current research draws on publicly accessible English-language archives in the United States to analyze the historical formation of the American international communication apparatus. “Apparatus” here is not a rigorous theoretical construct but an analytical tool, a conceptual scaffold for understanding and encompassing American overseas communication technologies, institutions, organizations, personnel, knowledge, and the building of the whole system. In terms of analytical perspective, if the study of “enemy radio broadcasts” takes an internal view from the grassroots institutions of Communist China, and the study of “field surveys” takes an intermediary, mediating view from actors spanning China and the United States, then the study of the American international communication apparatus adopts an internal American view as a whole. /
+        <span lang="zh">目前，我手头的研究以美国可供公开查阅的英文档案作为材料，试图解析美国国际传播装置的历史生成。“装置”在这一研究中并非严谨的理论构建，而只是一个分析工具，是理解并总括美国对外传播技术、制度、组织、人员、知识以及整个体系建设的概念脚手架。在分析视角上，如果说“敌台广播”研究是共产主义中国基层体制的内部视角，“实地调查”研究是跨越中美两国的行动者的居间、中介视角，那么，对美国国际传播装置的研究则整体采用美国的内部视角。</span>
+    </p>
+    <p>
+        I am collecting archives and other documents for the period 1927–1953. The starting point is Harold Lasswell’s 1927 doctoral dissertation, <em>Propaganda Technique in the World War</em>, because it was the first to set the rules for the American international communication apparatus. The study ends with the formal establishment of the U.S. Information Agency (USIA) in 1953, because it marks the completion of the institutionalization of American international communication, that is, the formation of the apparatus. From then until today, this apparatus has mobilized enormous resources and power to carry out American communication abroad. Of course, a sociology-of-knowledge examination of Lasswell’s work will inevitably involve his 1923 European study trip and even earlier periods, and a historical-institutionalist examination of the American wartime information apparatus will necessarily require materials from after 1953. /
+        <span lang="zh">我正在按1927至1953年这一时间区间收集档案和其他文献。以拉斯韦尔1927年的博士论文《世界大战中的宣传技巧》为起点，因为它最早为美国国际传播装置设定规则；研究将收束于美国新闻署（USIA）于1953年的正式成立，因为它意味着美国国际传播的制度化完成，亦即装置的成型。自此之后直至今日，这一装置将调用巨大的资源与力量实现美国的对外传播。当然，对拉斯韦尔研究的知识社会学考察将不可避免涉及到1923年他的欧洲考察乃至更早时期，而对美国战时信息装置的历史制度主义考察也必然需要1953年后的材料。</span>
+    </p>
+    <p>
+        This research also continues two themes of my earlier work: transnational knowledge production and American imperial expansion overseas. The knowledge production and theory creation of American academia were, on the one hand, a result of American involvement in international affairs and, on the other, themselves entered into the rule-setting of the international communication apparatus. The American scholars and experts who took part in this knowledge-producing practice included not only communication scholars such as Lasswell and Schramm but also Shannon, who proposed information theory, and Wiener, who proposed cybernetics, resulting in the formation of an American “information paradigm.” The logic followed by American imperial global expansion in the postcolonial context becomes clearer only when contrasted with the old paradigm of empire and colonialism. Unlike material occupation supported by knowledge such as anthropology and geography, American overseas expansion does not fit the traditional European colonial-empire model but is often expressed through “informal empire” (for example, voluntary associations, church organizations, foundations, and educational institutions). Looking at American international communication, the “information paradigm” is a logical continuation of so-called “informal empire.” Information, which cannot be materially occupied, is elusive, and therefore requires the techniques and procedures of the apparatus to control it, converting the intangible into something given form within the apparatus. /
+        <span lang="zh">上述研究也延续了我此前研究的跨国知识生产和美式帝国海外扩张两大议题。美国学界的知识生产与理论创造一方面是美国介入国际事务的结果，另一方面也进入国际传播装置的规则设置。参与这一知识生产实践的美国学者专家，不仅包括传播学者例如拉斯韦尔和施拉姆，还包括提出信息论的香农与提出控制论的维纳，结果是美国“信息范式”的成型。后殖民语境下美式帝国全球扩张所遵循的逻辑，要与帝国与殖民的旧范式加以对照才更清楚。不同于以人类学、地理学等知识支撑的物质性占据，美式帝国的海外扩张并不符合传统的欧洲殖民帝国模式，而是经常通过“非正式帝国”（例如：志愿社团、教会组织、基金会、教育机构等）加以表现。着眼于美国的国际传播，“信息范式”是所谓“非正式帝国”的一种逻辑延续。而无法物质占据的信息是飘忽不定的，因此需要装置的技术与程序加以把控，将无形之物转换为装置中的成形之物。</span>
+    </p>
+</section>
+</div>
 
 <footer>
     © 2026 Ziteng Zhang
 </footer>
+
+<script>
+(function () {
+    var tabs = {
+        profile: document.getElementById('tabbtn-profile'),
+        statement: document.getElementById('tabbtn-statement')
+    };
+    var panels = {
+        profile: document.getElementById('tab-profile'),
+        statement: document.getElementById('tab-statement')
+    };
+    function show(name, updateHash) {
+        for (var key in tabs) {
+            var on = (key === name);
+            tabs[key].setAttribute('aria-selected', on ? 'true' : 'false');
+            tabs[key].tabIndex = on ? 0 : -1;
+            panels[key].hidden = !on;
+        }
+        if (updateHash && window.history && history.replaceState) {
+            history.replaceState(null, '', name === 'statement' ? '#statement' : location.pathname + location.search);
+        }
+    }
+    tabs.profile.addEventListener('click', function () { show('profile', true); });
+    tabs.statement.addEventListener('click', function () { show('statement', true); });
+    function fromHash() { show(location.hash === '#statement' ? 'statement' : 'profile', false); }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
+})();
+</script>
 
 </body>
 
